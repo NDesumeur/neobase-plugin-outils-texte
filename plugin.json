@@ -1,0 +1,19 @@
+{
+  "id": "neobase.outilstexte",
+  "name": "Outils texte",
+  "version": "1.0.0",
+  "author": "NDesumeur",
+  "description": "Compare deux textes, compte les mots et corrige l'orthographe (français et anglais).",
+  "icon": "icon.png",
+  "entry": "index.js",
+  "view": "outils-texte",
+  "neobase": ">=4.0.0",
+  "type": "app",
+  "category": "Outils",
+  "mobile": false,
+  "system": false,
+  "dependencies": {},
+  "permissions": [
+    "full"
+  ]
+}
