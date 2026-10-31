@@ -2,11 +2,39 @@
 // Ses données sont dans le dossier du plugin, que NeoBase sauvegarde (synchro cloud et sauvegardes) ; à la première ouverture elle reprend ce que tu avais dans NeoBase.
 // Elle demande l'accès complet pour utiliser les outils d'interface de NeoBase. NeoBase ne l'ouvre que si elle est signée.
 const HTML = "";
+/*CSS-MOVED*/ const CSS = `.txBody{display:flex;flex-direction:column;gap:14px}
+.txCols{display:flex;gap:14px;align-items:stretch}
+.txCols>*{flex:1;min-width:0}
+.txArea{min-height:260px;resize:vertical;font-size:15px;line-height:1.5;padding:12px;user-select:text}
+.txOut{overflow:auto;max-height:60vh}
+.txDiff{width:100%;border-collapse:collapse;font:14px/1.45 Consolas,monospace;table-layout:fixed}
+.txDiff th{width:44px;color:var(--muted);font-weight:normal;text-align:right;padding:0 8px;vertical-align:top;user-select:none}
+.txDiff td{white-space:pre-wrap;word-break:break-word;padding:1px 8px;color:var(--shell);user-select:text}
+.txDiff tr.del td:nth-child(2),.txDiff td.del{background:rgba(255,79,109,.16)}
+.txDiff tr.ins td:nth-child(4),.txDiff td.ins{background:rgba(63,191,106,.16)}
+.txDiff td.chg{background:rgba(240,160,48,.08)}
+.txDiff td.none{background:rgba(255,255,255,.02)}
+.txDiff mark.out{background:rgba(255,79,109,.45);color:#fff}
+.txDiff mark.in{background:rgba(63,191,106,.45);color:#fff}
+.txSide{display:flex;flex-direction:column;gap:14px}
+.txLimits{display:flex;flex-direction:column;gap:6px;padding:4px 2px}
+.txLim{display:flex;justify-content:space-between;color:var(--lilac)}
+.txLim.over b{color:var(--red)}
+.txSpellOut{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}
+.txWord{flex-direction:row;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px}
+.txWord .btn{padding:6px 10px;font-size:9px}
+.txWord b.bad{color:var(--red);font-size:16px}
+.txWord b.warn{color:#ffd07a;font-weight:normal}
+.spMenu .spFix{font-weight:bold;color:#fff}
+.spSug{display:flex;flex-direction:column}
+.spSug>.hint{padding:6px 12px}
+`;  // le style de ce plugin (il utilise les variables du thème de NeoBase)
 export default async function (ctx) {
   const view = ctx.view;
   if (!ctx.host) { view.textContent = "Ce plugin doit être approuvé par NeoBase pour s'ouvrir."; return; }
   const host = ctx.host, { el, toast, sfx, ask, newTab, pixIcon, PIX, WX } = host;
   const folder = ctx.folder, legacy = ctx.legacy || {};
+  ctx.host.addStyle(CSS);
   view.innerHTML = HTML;
   const $ = id => id === "textApp" ? view : (view.querySelector('#' + id) || document.getElementById(id));  // les identifiants de ta vue d'abord, puis ceux de la page (fenêtres, menus)
   const doc = async n => { try { return await folder.read(n); } catch { return null; } };

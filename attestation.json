@@ -1,9 +1,0 @@
-{
-  "pluginId": "neobase.outilstexte",
-  "repo": "NDesumeur/neobase-plugin-outils-texte",
-  "version": "1.0.0",
-  "sha256": "f27437e9b9dd6a3fb130e2e4e405721bc0f886448fe592b6f79d571c36fee8da",
-  "approvedAt": "2026-10-31T16:39:32.100Z",
-  "neobase": ">=4.0.0",
-  "signature": "IYkhwH4oDqERpyNzMxzePUro4hpOlOkm0zsE+jlc8VJ9DrdsDmztx24xuyDM9pJMt3QgBM0K7NIDSd92IUCcAg=="
-}
