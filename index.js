@@ -1,6 +1,6 @@
 // Outils texte : ton appli d'origine (HTML et code inchangés), livrée en plugin.
-// Ses données sont dans le dossier du plugin, que NeoBase sauvegarde (synchro cloud et sauvegardes) ; à la première ouverture elle reprend ce que tu avais dans NeoBase.
-// Elle tourne dans le bac à sable de NeoBase, avec ses outils d'interface (ctx.host) et seulement les autorisations de son plugin.json.
+// Ses données sont dans le dossier du plugin, que NeoDex sauvegarde (synchro cloud et sauvegardes) ; à la première ouverture elle reprend ce que tu avais dans NeoDex.
+// Elle tourne dans le bac à sable de NeoDex, avec ses outils d'interface (ctx.host) et seulement les autorisations de son plugin.json.
 const HTML = "";
 /*CSS-MOVED*/ const CSS = `.txBody{display:flex;flex-direction:column;gap:14px}
 .txCols{display:flex;gap:14px;align-items:stretch}
@@ -28,10 +28,10 @@ const HTML = "";
 .spMenu .spFix{font-weight:bold;color:#fff}
 .spSug{display:flex;flex-direction:column}
 .spSug>.hint{padding:6px 12px}
-`;  // le style de ce plugin (il utilise les variables du thème de NeoBase)
+`;  // le style de ce plugin (il utilise les variables du thème de NeoDex)
 export default async function (ctx) {
   const view = ctx.view;
-  if (!ctx.host) { view.textContent = "Ce plugin doit être approuvé par NeoBase pour s'ouvrir."; return; }
+  if (!ctx.host) { view.textContent = "Ce plugin doit être approuvé par NeoDex pour s'ouvrir."; return; }
   const host = ctx.host, { el, toast, sfx, ask, newTab, pixIcon, PIX, WX } = host;
   const folder = ctx.folder, legacy = ctx.legacy || {};
   ctx.host.addStyle(CSS);
@@ -196,7 +196,7 @@ function txSpell() {
 
 // errors of a text, minus the words added to the dictionary: [{i, w, s}] (Windows' spell checker, more-main.js)
 async function spellList(text) { await toolsReady(); const ign = new Set(tools.text.ignore.map(w => w.toLowerCase())); return text.trim() ? (await window.neo.spellText(text)).filter(x => !ign.has(x.w.toLowerCase())) : []; }
-// right click in any text field of NeoBase: suggestions for the word under the mouse, then cut / copy / paste
+// right click in any text field of NeoDex: suggestions for the word under the mouse, then cut / copy / paste
 document.addEventListener('contextmenu', async e => {
   if (e.defaultPrevented) return;  // an app's own menu
   const field = e.target.closest?.('textarea, input:not([type]), input[type=text], input[type=search], [contenteditable=true]');

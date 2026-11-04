@@ -1,6 +1,6 @@
 {
-  "pluginId": "neobase.outilstexte",
-  "repo": "NDesumeur/neobase-plugin-outils-texte",
+  "pluginId": "neodex.outilstexte",
+  "repo": "NDesumeur/neodex-plugin-outils-texte",
   "version": "1.0.2",
   "sha256": "976dfb0534fda836c090dc73dfddbf4803cccd49134c6afa070b41dd5d5330de",
   "approvedAt": "2026-11-01T00:16:26.466Z",
