@@ -10,6 +10,8 @@
   "neobase": ">=4.0.0",
   "type": "app",
   "category": "Outils",
+  "syncMode": "fusion",
+  "syncInfo": "Tes modèles de texte.",
   "mobile": false,
   "system": true,
   "dependencies": {},
